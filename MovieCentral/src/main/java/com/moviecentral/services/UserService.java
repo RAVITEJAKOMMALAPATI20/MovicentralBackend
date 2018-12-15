@@ -40,7 +40,7 @@ public class UserService {
 		
 		
 		//Null Checks for important data
-		if(user==null || user.getEmail() == null || user.getUsername() == null || user.getPassword() == null) {
+		if(user==null || user.getUsername() == null || user.getPassword() == null) {
 			throw new MovieCentralValidationException("The data you entered is invalid");
 		}
 		
@@ -68,12 +68,12 @@ public User loginUserService(User user)  {
 		}
 		User regestered = userDao.loginUserDao(user);
 		
-		//boolean encodedpassword = movieCentralUtil.decodePassword(user.getPassword(), regestered.getPassword());
-		
-		//if(!encodedpassword) {
-			//return regestered;
-		//}
-		System.out.println("IS Enabled"+regestered.isEnable());
+		boolean encodedpassword = movieCentralUtil.decodePassword(user.getPassword(), regestered.getPassword());
+		System.out.println(encodedpassword);
+		if(!encodedpassword) {
+			 throw new MovieCentralValidationException("The data you entered is invalid");
+		}
+		System.out.println("User email verification Flag=="+regestered.isEnable());
 		/*if(regestered!=null && regestered.getUsername()!=null&&!regestered.isEnable()) {
 			throw new MovieCentralValidationException("Please Confirm your Registration");
 		}*/

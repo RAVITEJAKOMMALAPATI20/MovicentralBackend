@@ -35,6 +35,8 @@ public class TokenDAO {
 		try {
 		entityManager.persist(token);
 		}catch(Exception exception) {
+			
+			exception.printStackTrace();
 			throw new MovieCentralRepositoryException("Saving the token to the database");
 		}
 		

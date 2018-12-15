@@ -28,7 +28,12 @@ import org.hibernate.annotations.GenericGenerator;
 	@NamedQuery(
 	name = "UserSubscription.getAllsubscriptions",
 	query = "select US from UserSubscription US where US.username = :username"
-	)
+	),
+	@NamedQuery(
+			name = "UserSubscription.getusers",
+			query = "select DISTINCT US.username from UserSubscription US"
+			),
+	
 })
 public class UserSubscription implements Serializable {
 

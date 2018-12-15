@@ -57,8 +57,9 @@ public class UserController {
 	    String appUrl = request.getContextPath();
 	    Locale locale=request.getLocale();
 	    eventPublisher.publishEvent(new OnRegistrationSuccessEvent(registered_user,locale,appUrl));
-	    request.setAttribute("user", registered_user, WebRequest.SCOPE_SESSION);
-	    if(registered_user!=null && registered_user.getUsername()!=null&&!registered_user.isEnable()) {
+	   request.setAttribute("user", registered_user, WebRequest.SCOPE_SESSION);
+	    if(registered_user!=null && registered_user.getUsername()!=null) {
+	    	
 			throw new MovieCentralValidationException("Please Confirm your Registration");
 		}
 	    return registered_user;
@@ -70,7 +71,7 @@ public class UserController {
 	
 		User registered_user=userService.loginUserService(user);
 	    //request.setAttribute("user", registered_user, WebRequest.SCOPE_SESSION);
-System.out.println();
+
 	   
 	    return registered_user;
 		

@@ -31,7 +31,12 @@ import javax.persistence.TemporalType;
 	@NamedQuery(
 			name = "PayPerview.usermovies",
 			query = "select U from PayPerview U where U.user = :user"
+			),
+	@NamedQuery(
+			name = "PayPerview.getpayperviewusers",
+			query = "select DISTINCT U.user from PayPerview U"
 			)
+	
 })
 public class PayPerview  implements Serializable{
 	

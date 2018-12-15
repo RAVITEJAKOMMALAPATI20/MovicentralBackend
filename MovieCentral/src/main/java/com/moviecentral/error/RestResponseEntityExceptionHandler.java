@@ -29,13 +29,16 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
 	
     @ExceptionHandler({ MovieCentralValidationException.class })
     public ResponseEntity<Object> handleBadRequest(final MovieCentralValidationException ex, final WebRequest request) {
+    	
         final String bodyOfResponse = ex.getMessage();
+        //System.out.println("Here1"+bodyOfResponse);
         return handleExceptionInternal(ex, bodyOfResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
     
     @ExceptionHandler({ MovieCentralRepositoryException.class })
     public ResponseEntity<Object> handleBadRequest2(final MovieCentralRepositoryException ex, final WebRequest request) {
         final String bodyOfResponse = ex.getMessage();
+       // System.out.println("Here2"+bodyOfResponse);
         return handleExceptionInternal(ex, bodyOfResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
 }

@@ -115,6 +115,12 @@ public class User implements Serializable{
 	public void setPhonenumber(String phonenumber) {
 		this.phonenumber = phonenumber;
 	}
+	@Override
+	public String toString() {
+		return "User [username=" + username + ", password=" + password + ", email=" + email + ", enable=" + enable
+				+ ", usertype=" + usertype + ", firstname=" + firstname + ", lastname=" + lastname + ", middlename="
+				+ middlename + ", phonenumber=" + phonenumber + "]";
+	}
 	
 	
 	

@@ -16,10 +16,7 @@ import com.moviecentral.exceptions.MovieCentralRepositoryException;
 import com.moviecentral.pojos.Movie;
 
 
-/**
- * @author ravitejakommalapati
- *
- */
+
 @Repository
 @Transactional
 @Component

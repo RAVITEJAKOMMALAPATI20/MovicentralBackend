@@ -49,6 +49,7 @@ public class MovieCentralUtil {
 		}
 		
 		public boolean decodePassword(String inpassword,String dbpassword) {
+			System.out.println(inpassword+"----"+dbpassword);
 			return passwordEncoder.matches(inpassword, dbpassword); 
 		}
 		public String encodePassword(String password) {

@@ -54,7 +54,7 @@ public class RegistrationEmailListener implements ApplicationListener<OnRegistra
 	private void confirmRegistration(OnRegistrationSuccessEvent event)   {
 		User user = event.getUser();
 		String token = UUID.randomUUID().toString();
-		String toEmailAddress = user.getEmail();
+		String toEmailAddress = user.getUsername();
         String confirmationUrl = event.getAppUrl() + "/users/confirmRegistration?token=" + token; 
         System.out.println("confirmationUrl=="+confirmationUrl);
  	    String subject = "Movie Central Registration Confirmation";
@@ -78,7 +78,7 @@ public class RegistrationEmailListener implements ApplicationListener<OnRegistra
  	    SimpleMailMessage email = new SimpleMailMessage(); 
  	    email.setTo(toEmailAddress); 
  	    email.setSubject(subject); 
-        email.setText( "Please click the Link to activate your account\n"+"http://ec2-35-166-105-174.us-west-2.compute.amazonaws.com:8080"+confirmationUrl);
+        email.setText( "Please click the Link to activate your account\n"+"http://ec2-34-209-69-136.us-west-2.compute.amazonaws.com:8080"+confirmationUrl);
         mailSender.send(email);
 		
 	}

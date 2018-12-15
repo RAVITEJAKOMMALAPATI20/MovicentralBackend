@@ -35,7 +35,7 @@ public class UserDAO {
 	private EntityManager entityManager;
 	
 	public User signinUserDao(User user) {
-		
+		System.out.println(user.isUsertype()+"User Type");
 		try {
 		 entityManager.persist(user);
 		entityManager.flush();
