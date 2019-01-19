@@ -5,6 +5,7 @@ package com.moviecentral.aop;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
@@ -27,5 +28,11 @@ public class LogginAspect {
 	//	logger.debug("Exit the"+joinPoint.getTarget().getClass().getName()+"--Method Name :-"+joinPoint.getSignature().getName());
 
 	}
-	
+	@After("execution(* com.moviecentral..*..*(..))")
+	public void logAfter(JoinPoint joinPoint) throws Throwable {
+		logger.info("Exit the"+joinPoint.getTarget().getClass().getName()+"--Method Name :-"+joinPoint.getSignature().getName());
+	//	joinPoint.proceed();
+	//	logger.debug("Exit the"+joinPoint.getTarget().getClass().getName()+"--Method Name :-"+joinPoint.getSignature().getName());
+
+	}
 }

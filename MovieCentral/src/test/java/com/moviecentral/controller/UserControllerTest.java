@@ -24,9 +24,7 @@ public class UserControllerTest {
 		User user =new User();
 		user.setUsername("User1@gmail.com");
 		user.setPassword("user");
-		
 		User res=usercontroller.userSignin(user,null);
-		
 		assertEquals(res.isEnable(), true);
 	}
 
